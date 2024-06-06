@@ -7,6 +7,6 @@ import kotlinx.coroutines.flow.Flow
 interface MainRepository {
 
 
-    val getPhotos : Flow<PhotoResponse>
+    suspend fun getPhotos() : PhotoResponse
 
 }

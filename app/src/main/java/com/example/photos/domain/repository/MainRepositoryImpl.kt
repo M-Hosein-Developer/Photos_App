@@ -12,14 +12,7 @@ import javax.inject.Inject
 class MainRepositoryImpl @Inject constructor(private val apiService: ApiService) : MainRepository {
 
 
-    override val getPhotos: Flow<PhotoResponse> = flow {
-
-        while (true){
-            emit(apiService.getPhotos("cHrEYuOkjgsNihjYNRpvMpRQsw3PZxKY1jBGXRol3mc"))
-            delay(3000)
-        }
-
-    }.flowOn(Dispatchers.IO)
+    override suspend fun getPhotos(): PhotoResponse = apiService.getPhotos("cHrEYuOkjgsNihjYNRpvMpRQsw3PZxKY1jBGXRol3mc")
 
 
 }
